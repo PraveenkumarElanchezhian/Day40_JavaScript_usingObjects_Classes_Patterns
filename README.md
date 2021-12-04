@@ -1,0 +1,2 @@
+# Day40_JavaScript_usingObjects_Classes_Patterns
+JS_Practice_problem
