@@ -96,6 +96,7 @@ try {
 let addressBookOne = new AddressBook("Praveen", "Kumar", "Anna Nagar", "Salem", "TamilNadu", "633-645", "+91 9750260035", "pkeCD37@gmail.com");
 console.log(addressBookOne.toString());
 addressBook.push(addressBookOne);
+
 let addressBookTwo = new AddressBook("Aravind", "Raj", "Thirumalai Nagar", "Covai", "Kerala", "434-655", "+91 9778456782", "CDaravind56@gmail.com");
 console.log(addressBookTwo.toString());
 addressBook.push(addressBookTwo);
@@ -103,3 +104,48 @@ addressBook.push(addressBookTwo);
 for(let a=0;a<addressBook.length;a++){
     console.log(addressBook[a]);
 }
+
+function editExistingContact(firstName){
+    addressBook.some(AddressBook => AddressBook.firstName == firstName)
+}
+function editExistingContactDetails (firstName,changeDetails,){
+    if(editExistingContact(firstName)){
+        switch(changeDetails){
+            case "lastName":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).lastName = changeTheDetails;
+            break;
+            case "address":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).address = changeTheDetails;
+            break;
+            case "city":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).city = changeTheDetails;
+            break;
+            case "state":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).state = changeTheDetails;
+            break;
+            case "zip":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).zip = changeTheDetails;
+            break;
+            case "phoneNumber":
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).phoneNumber = changeTheDetails;
+            break;
+            default :
+            addressBook.find((AddressBook)=> AddressBook.firstName == firstName).email = changeTheDetails;
+            break;
+          
+        }
+    }
+    else {
+        console.log("Given address book details is not exist");
+    }
+}
+
+try {
+    let addressBookOne = new AddressBook("Praveen", "Kumar", "Tamil Nagar", "Rasipuram", "TamilNadu", "645-645", "+91 9750278035", "pmkDR37@gmail.com");
+    console.log(addressBookOne.toString());
+    addressBook.push(addressBookOne);
+    
+    let addressBookTwo = new AddressBook("Aravind", "Murali", "Thirumalai Nagar", "Covai", "Karnataka", "454-895", "+91 9796456782", "Muraliaravind56@gmail.com");
+    console.log(addressBookTwo.toString());
+    addressBook.push(addressBookTwo);
+    } catch (e){console.error(e)}
